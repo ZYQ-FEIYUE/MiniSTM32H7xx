@@ -1,12 +1,16 @@
-# WeAct Studio STM32H7xx
+# WeAct Studio STM32H7xx Openmv Firmware
 
-1. Example -> 例程
-2. Firmwares -> openmv固件，内有烧录下载教程
-3. Ports -> WeAct Studio STM32H750 核心板接口定义
+* [中文版本](./README-zh.md)
 
-## 接口定义 Interface Definition
-> 具体接口定义(Concrete interface definition) `Ports\micropython\boards\WeActStudioSTM32H7xx\mpconfigboard.h`
-```
+1. Example -> routine
+2. Firmwares -> Openmv firmware, has a tutorial for burning and downloading
+3. Ports -> WeAct Studio STM32H750 Core board interface definition
+
+## Interface Definition
+
+> Concrete interface definition. The Path：`Ports\micropython\boards\WeActStudioSTM32H7xx\mpconfigboard.h`
+
+``` c
 代号，实际管脚名
 Code name, Actual pin name
 P0,PB15
@@ -32,39 +36,48 @@ LED_BLUE,PE3
 ## How to Build OpenMV
 
 1. Clone openmv source code
-```
-git clone https://github.com/WeActTC/openmv.git --depth=1
-```
+
+    ``` bash
+    git clone https://github.com/WeActTC/openmv.git --depth=1
+    ```
 
 2. Init source code
-```
-cd openmv
-git submodule init
-git submodule update --depth=1
-cd src/micropython
-git submodule init
-git submodule update --depth=1
-cd ..
-```
+
+    ``` bash
+    cd openmv
+    git submodule init
+    git submodule update --depth=1
+    cd src/micropython
+    git submodule init
+    git submodule update --depth=1
+    cd ..
+    ```
 
 3. Install gcc-arm-none-eabi
-```
-sudo apt-get install gcc-arm-none-eabi
-```
+
+    ``` bash
+    sudo apt-get install gcc-arm-none-eabi
+    ```
 
 4. Bulid
-```
-# 1. Copy `Ports/omv/boards/WeActStudioSTM32H7xx` to `openmv/src/omv/boards/`
-# 2. Copy `Ports/micropython/boards/WeActStudioSTM32H7xx` to `openmv/src/micropython/ports/stm32/boards/`
-# 3. Copy `Ports/micropython/micropython-Add-WeAct-Studio-STM32H7xx-Support.patch` to `openmv/src/micropython/`
-# go to `openmv/src`
-cd micropython
-git am micropython-Add-WeAct-Studio-STM32H7xx-Support.patch
-cd mpy-cross
-make -j
-cd ../../
-make TARGET=WeActStudioSTM32H7xx -j
-```
+
+    First, copy the relevant folder in the current data Port folder to the corresponding location
+    1. Copy `Ports/omv/boards/WeActStudioSTM32H7xx` to `openmv/src/omv/boards/`
+    2. Copy `Ports/micropython/boards/WeActStudioSTM32H7xx` to `openmv/src/micropython/ports/stm32/boards/`
+    3. Copy `Ports/micropython/micropython-Add-WeAct-Studio-STM32H7xx-Support.patch` to `openmv/src/micropython/`
+    4. Go to `openmv/src`
+    5. Enter relevant commands
+
+        ``` c
+        cd micropython
+        git am micropython-Add-WeAct-Studio-STM32H7xx-Support.patch
+        cd mpy-cross
+        make -j
+        cd ../../
+        make TARGET=WeActStudioSTM32H7xx -j
+        ```
+
+The address of firmware burning, generally burning openmv. bin, this firmware is bootloader. bin and Firmware. bin together
 
 > bootloader.bin 0x08000000
 

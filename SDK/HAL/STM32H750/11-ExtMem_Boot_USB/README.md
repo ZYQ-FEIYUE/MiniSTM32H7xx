@@ -1,5 +1,8 @@
 # WeAct Studio
+
 ## ExtMem Boot USB HID
+
+当前例程作用为使用USB_HID下载程序在外部运行，需要烧录11-ExtMem_Boot_USB.hex之后就能使用上位机，烧录外部Flash运行的固件
 
 在8MB QSPI Flash上运行程序，该例程为QSPI Bootloader,APP Addr: `0x90000000`
 

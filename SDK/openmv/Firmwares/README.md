@@ -1,30 +1,41 @@
-# SPI Flash Erase Firmware
-> 当出现U盘无法识别的时候（py代码编写错误引起），可以烧录该固件擦除SPI Flash
+# Directory description
 
-由于openmv固件是没有办法擦除外部的SPI存储器，所以我们提供`SPI Flash Erase Firmware`固件用于擦除外部的两颗`SPI Flash`
+* [中文版本](./README-zh.md)
 
-* `SPI_Flash_Erase_0x8000000.hex`可以使用我们提供的`WeAct Studio USB Download Tool`进行下载，下载完成后，等待程序运行完成，核心板屏幕显示`Please Burn Next Fiwmware`后可以重新烧录固件
-* `SPI_Flash_Erase_0x8040000.bin`可以直接使用openmv IDE进行下载，具体方法为：
-1. 选择`工具->运行引导加载程序(加载固件)`
-2. 选择`SPI_Flash_Erase_0x8040000.bin`,然后点击运行即可
-3. 下载完成后，等待程序运行完成，核心板屏幕显示`Please Burn Next Fiwmware`后继续下一步
-4. openmv IDE 继续勾选`工具->运行引导加载程序(加载固件)`,选择我们资料提供的`firmware.bin`固件(不是USB Download软件里面的固件)，然后点击运行,之后核心板单击复位按钮，等待固件下载完成
+## Related burning tutorial
 
-# Vx.x.x
-> Openmv 固件，例如`V3.6.4`为openmv固件的版本
+[STM32 to download the burn tutorial and problem summary, click here](http://www.weact-tc.cn/2019/11/30/STM32Download/)
 
-> Openmv firmware, for example 'V3.6.4' is the version of Openmv firmware
-
-## Internal Flash (推荐)
-> Openmv 固件放在内部地址，从0x08000000开始
-
-## QSPI Flash
-> 固件放置在外部8MB QSPI Flash，所以需要下载0x08000000.hex，初始化QSPI外设，将QSPI Flash映射到0x90000000。
-
-[STM32 下载烧录教程以及问题汇总](http://www.weact-tc.cn/2019/11/30/STM32Download/)
+``` bash
+>> Download the burn video tutorial
+visit WeAct Studio Download Tool 烧录教程.mp4
+Baidu cloud: https://pan.baidu.com/s/1wPy3f_cRzPJc_YnOVKTprA 
+Extract the code: rji7
 ```
->> 下载烧录视频教程
-见WeAct Studio Download Tool 烧录教程.mp4
-百度网盘: https://pan.baidu.com/s/1wPy3f_cRzPJc_YnOVKTprA 
-提取码: rji7
-```
+
+## SPI Flash Erase Firmware
+
+> When the USB Flash drive is not recognized (py code error), the firmware can be burned to erase the SPI Flash
+
+Because openMV Firmware cannot Erase the external SPI memory, we provide `SPI Flash Erase` Firmware for the two external `SPI Flash`
+
+* `SPI_Flash_Erase_0x8000000.hex` can be downloaded using the [WeAct Studio USB Download Tool](https://github.com/WeAct-TC/WeAct-Studio-Product.git) to download，After downloading and waiting for the program to run, the core board screen shows `Please Burn Next Fiwmware` after you can re-burn the firmware
+
+* `SPI_Flash_Erase_0x8040000.bin` you can directly use the OpenMV IDE for downloading, as follows:
+
+    1. Open Openmv IDE choose `Tools->Run Bootloader(Load Firmware)`
+    2. Choose `SPI_Flash_Erase_0x8040000.bin`, and then click on the run
+    3. After downloading, wait for the program to run, the core board screen display `Please Burn Next Fiwmware` go on to the next step
+    4. Openmv IDE Continue to choose `Tools->Run Bootloader(Load Firmware)`,Choose our data provide the firmware `firmware.bin` (Vx.x.x/internal/firmware. bin)(Not the firmware in the USB Download software), then click run, and then the core board click reset button, waiting for the firmware download to complete
+
+## Vx.x.x
+
+> Openmv firmware, such as `V3.6.4` is the version of the Openmv firmware
+
+### Internal Flash (recommended)
+
+> Openmv firmware is placed in the internal address, starting from 0x08000000, openmv. Bin can be burned. This firmware is a combination of bootloader.bin and firmware. Bin
+
+### QSPI Flash
+
+> The firmware is placed in the external 8MB QSPI Flash, so you need to download 0x08000000.hex, initialize the QSPI peripheral, and map the QSPI Flash to 0x90000000.bin
