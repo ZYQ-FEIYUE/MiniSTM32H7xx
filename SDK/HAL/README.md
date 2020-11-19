@@ -9,7 +9,8 @@ Our project consists of an internal Flash and an external Flash run, using which
 ### `The program runs in internal Flash`
 
 Select the Target run with internal Flash to compile and run
-    ![keilInternal1](Images/keilInternal1.png)
+
+![keilInternal1](./Images/keilInternal1.png)
 
 ### `The program runs in external Flash`
 
@@ -20,4 +21,5 @@ To run the program in external Flash, you first need to download a Bootloader, i
 2. Add the external Flash download algorithm by referring to the README in the folder `QSPI_Flasher`
 
 3. Routine 03, select externally run Target with W25Qxx, 0_96 for 0.96 inch TFT, 1_8 for 1.8 inch TFT, compile run download
-    ![keilInternal2](Images/keilInternal2.png)
+
+![keilInternal2](./Images/keilInternal2.png)
