@@ -22,4 +22,4 @@
 
 3. 例程03，选择外部运行的Target，带有W25Qxx字样，0_96为0.96寸TFT，1_8为1.8寸TFT，编译运行下载
 
-![keilInternal2](./Images/keilInternal2.png)
+![keilInternal2](./Images/keilinternal2.png)
