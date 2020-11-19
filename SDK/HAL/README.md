@@ -22,5 +22,4 @@ To run the program in external Flash, you first need to download a Bootloader, i
 
 3. Routine 03, select externally run Target with W25Qxx, 0_96 for 0.96 inch TFT, 1_8 for 1.8 inch TFT, compile run download
 
-![keilInternal2](./Images/keilInternal2.png)
-
+![keilInternal2](./Images/keilinternal2.png)
